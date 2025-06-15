@@ -22,6 +22,12 @@ const useTodoStore = create(
             ],
           }));
         },
+
+        addAITodos: (todosAI) => {
+          set((state) => ({
+            todos: [...state.todos, ...todosAI],
+          }));
+        },
         
         toggleTodo: (id) => {
           set((state) => ({

@@ -2,11 +2,12 @@ import TodoForm from "./componentes/TodoForm";
 import TodoItem from "./componentes/TodoItem";
 import TodoFilter from "./componentes/TodoFilter";
 import useTodoStore from "./stores/useTodoStore";
+import SuggestButton from "./componentes/suggestButton";
 import React from "react";
 
 function App() {
     const todos = useTodoStore(state => state.todos);
-  const filter = useTodoStore(state => state.filter);
+    const filter = useTodoStore(state => state.filter);
 
     const filteredTodos = React.useMemo(() => {
         switch (filter) {
@@ -22,7 +23,9 @@ function App() {
     return (
         <div className="app">
             <h1>Marlin ToDo App</h1>
+            <p>Genera nuevas tareas con Gemini acorde a las tareas existentes</p>
             <TodoForm />
+            <SuggestButton />
             <TodoFilter />
             <ul className="todo-list">
                 {filteredTodos.map((todo) => (
